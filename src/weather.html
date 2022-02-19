@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../dist/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,600&family=Righteous&family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Wheather App</title>
+</head>
+<body class="min-h-screen flex justify-center items-center bg-sky-400" style="font-family: 'Poppins'; padding-right: 10px;padding-left: 10px;;">
+
+    <div class="wrapper rounded-lg pt-7 bg-white text-sky-500">
+      
+      <div class="max-w-xs space-y-5 box-border">
+          <h2 class="text-sky-400 font-semibold text-2xl border-b-2 pb-3 px-3" style="font-family: 'Righteous', cursive;">
+            Weather App
+          </h2>
+
+        <div class="mb-5 relative rounded px-3 pb-4">
+          <p class="info bg-black h-16 text-center pt-2 rounded-xl mb-3.5 hidden">holla</p>
+          <input type="text" class="text-center rounded-xl border-2 h-16 sm:h-14 w-full px-9 mb-3.5 border-gray-300 placeholder-gray-400  focus:border-sky-300 focus:outline-none hover:cursor-text hover:font-medium " placeholder="Enter city name">
+          <div class="seperator h-0.5 w-full bg-gray-300 relative flex items-center justify-center before:content-['or'] before:px-3 before:bg-white before:text-lg"></div>
+          <button type="submit" class="newQT mt-3.5 w-full h-16 sm:h-14 px-6 border border-transparent text-sm sm:text-base font-medium rounded-2xl text-white bg-sky-400 hover:bg-sky-500 " >
+            Use device location
+          </button>
+        </div>
+
+        <section class="weather-part hidden font-mono active:flex items-center flex-col " style="font-family: 'Righteous', cursive;">
+          <img src="" alt="Weather Icon">
+          <div class="temp  text-5xl">
+            <span class="numb ">32</span>
+            <span class="deg">°</span>C
+          </div>
+          <div class="weather text-2xl ">hot die</div>
+          <div class="location pb-3 text-2xl">
+            <i class='bx bx-map'></i>
+            <span>Lagos, Nigeria</span>
+          </div>
+          <div class="bottom-details flex flex-row justify-between w-full border-t border-gray-300">
+            <div class="column feels flex items-center justify-center w-full ">
+              <i class='bx bxs-thermometer text-4xl'></i>
+              <div class="details ml-1">
+                <div class="temp ">
+                  <span class="numb-2 font-semibold -mt-1">52</span>
+                  <span class="deg font-medium -mt-1 px-0.5">°</span>C
+                </div>
+                <p class="text-xs -mt-1.5">Feels like</p>
+              </div>
+            </div>
+            <div class="column humidity flex items-center justify-center w-full py-2 px-1 border-l border-solid border-gray-300 ">
+              <i class='bx bxs-droplet-half text-4xl'></i>
+              <div class="details ml-1 ">
+                <span class="font-semibold -mt-1">30%</span>
+                <p class="text-xs -mt-1.5">Humidity</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+
+      </div>
+    </div>
+    <script src=""></script>
+  </body>
+</html>

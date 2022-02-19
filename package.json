@@ -1,0 +1,14 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "weather.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SED",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.0.23"
+  }
+}
