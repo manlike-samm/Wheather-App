@@ -9,26 +9,23 @@ weather = document.querySelector('.weather'),
 state = document.querySelector('.location'),
 humidity = document.querySelector('.hum'),
 wIcon = document.querySelector('img'),
-arrow = document.querySelector('.arrow')
+arrow = document.querySelector('.arrow'),
+btn = document.querySelector('.btn')
 
 let api;
 
 function requestApi(city){
-    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ee928ee26dc35bcd3f3efeafec71d151`;
+    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=your_api_key`;
     fetchData();
 }
 function onSuccess(position){
     const {latitude, longitude} = position.coords;
-    api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=ee928ee26dc35bcd3f3efeafec71d151`;
+    api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=your_api_key`;
     fetchData();
 }
 
 function fetchData(){
-    //infoTxt.innerText = "Getting weather details...";
-    //infoTxt.classList.add("pending");
-    fetch(api).then(res => res.json()).then(result => {//weatherDetails(result)).catch(() =>{
-        //infoTxt.innerText = "Something went wrong";
-        //infoTxt.classList.replace("pending", "error");
+    fetch(api).then(res => res.json()).then(result => {
         info.classList.remove('hidden')
         if (result.message) {
             setTimeout(() =>{
@@ -43,8 +40,6 @@ function fetchData(){
                 inputPart.classList.add('hidden');
                 weatherPart.classList.replace('hidden', 'flex');
             }, 1000);
-           
-            console.log(result);
             temperature.innerText = Math.floor(result.main.temp);
             weather.innerText = result.weather[0].description;
             state.innerText = result.name + ', ' + result.sys.country;
@@ -52,7 +47,6 @@ function fetchData(){
             temperature2.innerText = Math.floor(result.main.feels_like);
     
             let id = result.weather[0].id;
-    
             if(id == 800){
                 wIcon.src = "../icons/clear.svg";
             }else if(id >= 200 && id <= 232){
@@ -84,3 +78,17 @@ arrow.addEventListener("click", ()=>{
     weatherPart.classList.replace('flex', 'hidden');
     textInput.value = "";
 });
+
+btn.addEventListener('click', () => {
+    if(navigator.geolocation){ // if browser support geolocation api
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }else{
+        alert("Your browser not support geolocation api");
+    }
+});
+
+function onError(error){
+    // if any error occur while getting user location then we'll show it in infoText
+    info.innerText = error.message;
+    info.classList.add("error");
+}
